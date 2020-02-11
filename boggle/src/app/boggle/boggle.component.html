@@ -1,0 +1,31 @@
+<div id="boggle-side">
+    <countdown-timer [end]="endTimer" (zeroTrigger)="countDownEnded()"></countdown-timer>
+</div>
+
+
+
+<section>
+    <app-highscores [scores]="scores"> </app-highscores>
+    <app-foundwords [foundWords]="foundWords"> </app-foundwords>
+
+    
+
+	<div>
+		<div class="total">{{ boggle.points }} pts</div>
+	</div>
+	
+	<div class="errors">{{ boggle.errors }}</div>
+	<ul class="board" id="board">
+		<li 
+			*ngFor="let letter of letters"
+			id="{{ letter.order }}"
+			[ngClass]="{'disabled' : letter.disabled, 'selected' : letter.selected } "
+			(click)="onSelectLetter(letter)"
+		>
+			<span> {{ letter.value }} </span>
+		</li>
+	</ul>
+	
+	<input id="entered" [(ngModel)]="boggle.entered" placeholder="">
+	<button class="test" id="test" (click)="testWord()" [disabled]="submitDisabled" >Submit word</button>
+</section>

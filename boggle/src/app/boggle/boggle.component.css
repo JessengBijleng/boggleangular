@@ -1,0 +1,127 @@
+@import url(https://fonts.googleapis.com/css?family=Lato:400,300,700);
+section {
+  width: 290px;
+  position: absolute;
+  background: #fff;
+  top: 400px;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+#boggle-side {
+    width: 120px;
+    position: absolute;
+    top: 455px;
+    right: 30%;
+    font-weight: bold;
+    font-size: 24px;
+}
+
+ul {
+  width: 100%;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+ul.good li {
+  background: #7fbf3f;
+}
+ul.bad li {
+  background: #bf3f3f;
+}
+.board li {
+  position: relative;
+  float: left;
+  width: 66px;
+  height: 66px;
+  margin: 1px;
+  border-radius: 15px;
+  border: 1px solid #ddd;
+  cursor: pointer;
+  transition: all 500ms;
+  -webkit-transition: all 500ms;
+  -ms-transition: all 500ms;
+  -moz-transition: all 500ms;
+  transition: all 500ms;
+  background-color: #fffdf8;
+}
+.board li.disabled {
+  opacity: 0.4;
+  background: #e6c0c0;
+}
+.board li.selected {
+  background: #7fbf3f;
+  opacity: 1;
+}
+.board li span {
+  font-weight: 700;
+  text-align: center;
+  vertical-align: middle;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+.errors {
+  width: 78%;
+  display: inline-block;
+  margin-bottom: 10px;
+  color: #bf3f3f;
+  padding-left: 4px;
+}
+.errors b {
+  font-weight: 700;
+}
+.total {
+  width: 17%;
+  display: inline-block;
+  margin-bottom: 10px;
+  padding: 3px 3px 5px 2%;
+  color: #fff;
+  background: #7fbf3f;
+  border-radius: 3px;
+}
+input {
+  width: 100%;
+  text-align: center;
+  margin-top: 15px;
+  border: 1px solid blue;
+  font-size: 1.5em;
+  border: none;
+  border-bottom: 1px solid #1e1e1e;
+  margin-bottom: 20px;
+}
+.test {
+  padding: 0.5em;
+  background: #7fbf3f;
+  cursor: pointer;
+  border-radius: 3px;
+  color: #fff;
+  transition: all 500ms;
+}
+.test:hover {
+  background: #0741a5;
+}
+.info {
+  max-width: 200px;
+  padding: 10px;
+  background: #1864f0;
+}
+.info a {
+  color: #fff;
+}
+.info p {
+  margin-top: 5px;
+  font-size: 0.8em;
+  color: #fff;
+}
+body {
+  font-family: 'Lato', sans-serif;
+}
+

@@ -1,0 +1,6 @@
+<p>Highscores:</p>
+<ul class="highscore"></ul>
+
+<li *ngFor="let item of scores; index as i; trackBy: trackByFn" style="margin-bottom: 5px;">
+    {{ item }}
+</li>
