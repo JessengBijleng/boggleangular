@@ -86,6 +86,7 @@ ul.bad li {
   color: #fff;
   background: #7fbf3f;
   border-radius: 3px;
+  margin-top: 10px;
 }
 input {
   width: 100%;

@@ -36,7 +36,7 @@ export class BoggleComponent implements OnInit {
 	};
 	
 	constructor( private boggleService: BoggleService ) {
-        this.endTimer.setSeconds(this.endTimer.getSeconds() + 180);
+        this.endTimer.setSeconds(this.endTimer.getSeconds() + 20);
     }
 
 	searchLetters(index: number): BoggleLetter {
@@ -50,7 +50,6 @@ export class BoggleComponent implements OnInit {
     
     // Disable letters that are not adjacent to the selected letter
 	onSelectLetter( letter : BoggleLetter ){
-		
 		if(
 			( ! letter.disabled ) || 
 			( letter.disabled && letter.selected && this.boggle.entered[ this.boggle.entered.length - 1] == letter.value )
@@ -126,8 +125,9 @@ export class BoggleComponent implements OnInit {
 						this.letters[i].disabled = false;
 						this.letters[i].selected = false;
                     }
-                    this.addToFoundWords(this.boggle.entered);
-
+                    // Add to found words and clear the input
+                    this.addToFoundWords(this.boggle.entered);  
+                    this.boggle.entered = "";
 				} else {
 					this.boggle.errors = "The word '"+ this.boggle.entered + "' is not a valid word!";
 				}
@@ -139,6 +139,7 @@ export class BoggleComponent implements OnInit {
     // Game ended; 
     countDownEnded() {
         if(this.countDownCalled == false) {
+            this.saveScore(this.boggle.points);
             alert("Your game ended. Your score is: " + this.boggle.points);
             if( confirm("Start new game") ){
                 window.location.reload();
@@ -149,17 +150,13 @@ export class BoggleComponent implements OnInit {
     }
     
     // Make request to server to save the highscore
-	saveHighscore(score: number){
+	saveScore(score: number){
 		if( this.boggle.points > 0) {							
-            this.boggleService.addHighscore( 
+            this.boggleService.addScore( 
                 this.boggle.points, 			
             ).subscribe( (response) => {
                 console.log(response);
-            })
-            
-            if( confirm("Start a new game?") ){
-                window.location.reload();
-            }
+            });
         }
     }
     

@@ -1,6 +1,7 @@
-<p>Found Words</p>
-<ul class="found"></ul>
+<p>Found Words:</p>
 
-<li *ngFor="let item of foundWords; index as i; trackBy: trackByFn" style="margin-bottom: 5px;">
-    {{ item }}
+<li *ngFor="let item of foundWords; index as i; trackBy: trackByFn" style="margin-bottom: 10px; display: inline;">
+    <b>{{ item }},</b>
 </li>
+
+

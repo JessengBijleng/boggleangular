@@ -26,13 +26,15 @@ export class BoggleService {
 		return this.http.get(this.ApiURL + '/checkWord?word=' + word.toLowerCase());
 	}
 	
-	addHighscore( score: number ): Observable<Object> {
+	addScore( score: number ): Observable<Object> {
 		return this.http.get(this.ApiURL + '/addScore?score=' + score);
     }
     
     getScores(): Observable<Object> {
 		return this.http.get(this.ApiURL + '/getScores');
-	}
+    }
+    
+
 	
 	constructor(
 		private http: HttpClient
